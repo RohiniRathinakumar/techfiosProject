@@ -20,6 +20,7 @@ public class AddCustomerTest {
 	String name="Rohini";
 	String company="Bank Of America";
 	String email="demo@techfios.com";
+	String Phone="12345";
 	@Test
 	public void userShouldBeAbleToAddCustomer() throws InterruptedException {
 		driver=BrowserFactory.init();
@@ -37,6 +38,10 @@ public class AddCustomerTest {
 		 addcustomerpage.insertFullName(name);
 		 addcustomerpage.insertComapanyName(company);
 		 addcustomerpage.insertEmailName(email);
+		 addcustomerpage.insertPhoneNumber(Phone);
+		 addcustomerpage.clickOnSaveButton();
+		 addcustomerpage.clickOnListOfCustomers();
+			 
 			 
 	}
 
