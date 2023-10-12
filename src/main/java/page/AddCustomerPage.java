@@ -15,14 +15,14 @@ public class AddCustomerPage extends BasePage {
 
 	}
 
-	@FindBy(how = How.XPATH, using = "//*[@id=\"page-wrapper\"]/div[3]/div[1]/div/div/div/div[1]/h5")
-	WebElement ADD_CUSTOMER_HEADER_ELEMENT;
-	@FindBy(how = How.XPATH, using = "//*[@id=\"account\"]")
-	WebElement FULL_NAME_ELEMENT;
-	@FindBy(how = How.XPATH, using = "//*[@id=\"cid\"]")
-	WebElement COMPANY_ELEMENT;
-	@FindBy(how = How.XPATH, using = "//*[@id=\"email\"]")
-	WebElement EMAIL_ELEMENT;
+	@FindBy(how = How.XPATH, using = "//*[@id=\"page-wrapper\"]/div[3]/div[1]/div/div/div/div[1]/h5")WebElement ADD_CUSTOMER_HEADER_ELEMENT;
+	@FindBy(how = How.XPATH, using = "//*[@id=\"account\"]")	WebElement FULL_NAME_ELEMENT;
+	@FindBy(how = How.XPATH, using = "//*[@id=\"cid\"]")	WebElement COMPANY_ELEMENT;
+	@FindBy(how = How.XPATH, using = "//*[@id=\"email\"]")	WebElement EMAIL_ELEMENT;
+	@FindBy(how = How.XPATH, using = "//input[@id='phone']")	WebElement PHONE_ELEMENT;
+	@FindBy(how = How.XPATH, using = "//button[@class='md-btn md-btn-primary waves-effect waves-light']")	WebElement SAVE_ELEMENT;
+	@FindBy(how = How.CSS, using = "a[href$='https://techfios.com/billing/?ng=contacts/list/']")	WebElement CUSTOMER_LIST_ELEMENT;
+
 
 	public void verifyAddCutomerPage(String addcustomer) {
 		Assert.assertEquals(ADD_CUSTOMER_HEADER_ELEMENT.getText(), addcustomer, "Add cutomer page not found");
@@ -41,5 +41,19 @@ public class AddCustomerPage extends BasePage {
 	public void insertEmailName(String email) {
 		EMAIL_ELEMENT.sendKeys(generateRandomNumber(999) + email);
 
+	}
+	public void insertPhoneNumber(String phone) {
+		PHONE_ELEMENT.sendKeys(phone +generateRandomNumber(999));
+
+	}
+	public void clickOnSaveButton() {
+		SAVE_ELEMENT.click();
+
+}
+
+	public void clickOnListOfCustomers() throws InterruptedException {
+		Thread.sleep(2000);
+		CUSTOMER_LIST_ELEMENT.click();
+		
 	}
 }
